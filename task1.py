@@ -63,11 +63,15 @@ def calculate_1():
     num1 = e1.get()
     num2 = e2.get()
     num3 = e3.get()
-    num1=float(num1)
-    num2=float(num2)
-    num3=float(num3)
-    s=float((num1+num2+num3)/2)
-    c=math.sqrt(s*(s-num1)*(s-num2)*(s-num3))
+    if num1.isdigit() and num2.isdigit() and num3.isdigit():
+        num1=float(num1)
+        num2=float(num2)
+        num3=float(num3)
+        s=float((num1+num2+num3)/2)
+        c=math.sqrt(s*(s-num1)*(s-num2)*(s-num3))
+    else:
+        c='insufficient conditoins'
+
     answer=str(c)
 
     e6.delete(0,END)
@@ -76,14 +80,16 @@ def calculate_1():
 def calculate_2():
     l8.grid(row=5,column=3)
     e6.grid(row=5,column=4)
-    answer=""
+    answer="" 
     num1 = e4.get()
     num2 = e5.get()
-    num1=float(num1)
-    num2=float(num2)
-    c=(num1*num2)/2
+    if num1.isdigit() and num2.isdigit():
+        num1=float(num1)
+        num2=float(num2)
+        c=(num1*num2)/2
+    else:
+        c='insufficient conditions'
     answer=str(c)
-
     e6.delete(0,END)
     e6.insert(0,answer)    
 
@@ -97,8 +103,6 @@ b6 = tk.Button(win, text="Calculate",command=calculate_2)
 l7.grid(row=1,column=1)
 b1.grid(row=1,column=2)
 b2.grid(row=1,column=3)
-
-
 
 
 win.mainloop()
